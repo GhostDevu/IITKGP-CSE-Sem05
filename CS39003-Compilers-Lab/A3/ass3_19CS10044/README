@@ -1,0 +1,71 @@
+
+********************************************************************************************
+
+COMPILERS LABORATORY CS39003
+ASSIGNMENT O3 -- Lexer for tinyC
+Semester O5 (Autumn 2021-22)
+Group Members : Hritaban Ghosh (19CS30053)
+                Nakul Aggarwal (19CS10044)
+
+********************************************************************************************
+
++++ DESCRIPTION OF FILES +++
+
+ass3_19CS10044_19CS30053.l :
+	This .l file contains the lex specification for the tinyC programming language.
+
+ass3_19CS10044_19CS30053_main.c : 	
+	This .c file contains the main function which takes a path to a C Source File written 
+	in tinyC programming language as a command line argument and then passes this source 
+	file to the lexer using yyin() and performs lexical analysis to generate tokens on the 
+	fly using yylex(). It contains the source code for generating tokens one after another 
+	as in an Interactive lexer.
+
+ass3_19CS10044_19CS30053_test.c :
+	This file is a C Source File written in tinyC programming language. It contains an all 
+	encompassing program which will be used to test the working of the lexer written in 
+	ass3_19CS10044_19CS30053.l . It consists of various programming constructs of the tinyC 
+	programming language.
+
+Makefile:
+	The Makefile generates an executable ./a.out which can then be used in the following 
+	manner to test the lexer.
+
+********************************************************************************************
+
++++ TESTING LEXER WITH THE ATTACHED TEST FILE +++
+
+Perform the following commands in sequence at the terminal.
+
+	Step 1: Switch to the folder containing all the above files
+
+				>>> cd "Path to folder ass3_19CS10044_19CS30053"
+
+	Step 2: Execute the make command to generate the ./a.out executable.
+
+				>>>	make
+
+	Step 3: Execute the following command to automatically run the lexer 
+			on the attached file and display the tokens.
+
+				>>>	make test
+
+********************************************************************************************
+
++++ TESTING LEXER WITH CUSTOM TEST FILE +++
+
+Perform the following commands in sequence at the terminal.
+
+	Step 1: Switch to the folder containing all the above files
+
+				>>> cd "Path to folder ass3_19CS10044_19CS30053"
+
+	Step 2: Execute the make command to generate the ./a.out executable.
+
+				>>>	make
+
+	Step 3: Pass your own test file (say "custom_test.tinyC") as a command line argument to ./a.out.
+
+				>>>	./a.out custom_test.tinyC
+
+********************************************************************************************

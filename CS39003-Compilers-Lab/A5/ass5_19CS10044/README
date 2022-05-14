@@ -1,0 +1,116 @@
+
+**************************************************************
+COMPILERS LABORATORY CS39003
+ASSIGNMENT O5 -- Machine Independent Code Translation for tinyC
+Semester O5 (Autumn 2021-22)
+Group Members : Hritaban Ghosh (19CS30053)
+                Nakul Aggarwal (19CS10044)
+                
+**************************************************************
+Description of files:
+
+ass5_19CS10044_19CS30053.y : 
+This .y file contains the bison specification for the tinyC programming language. Please note that several grammar rules that are to e excluded from the previous assignment have not been deleted, rather they are left without any actions associated with them (which is as good as deleting them). This is done on purpose to retain the structure of the bison file and increase productivity incase of future extensions.
+
+ass5_19CS10044_19CS30053.l : 
+This .l file contains the lex specification for the tinyC programming language.
+
+ass5_19CS10044_19CS30053_translator.h : 
+This .h file contains the declarations of all the data structures, classes, their attributes and methods and global functions and algorithms used to translate the code written in the tinyC programming language into a Machine Independent 3-Address Code. The only Machine Dependent Features are the size of various data types of the tinyC programming language. These have been specified as macros in this file and also initialized into the global container(s) in the main function of .cxx file.
+
+ass5_19CS10044_19CS30053_translator.cxx : 
+This .cxx file contains the definitions of all the data structures, classes, their attributes and methods and global functions and algorithms used to translate the code written in the tinyC programming language into a Machine Independent 3-Address Code.
+
+---------------------------------------------------------------
+
+Test Files: All the test files combined thoroughly checks all the constructs and data paths of the translator along with lexer and the parser.
+
+ass5_19CS10044_19CS30053_test1.c [ EXPRESSION PHASE ]:
+This file is a C Source File written in tinyC programming language. It contains a program which will be used to test the working of the translator in conjunction with the lexer and parser. It consists of various programming constructs to test the [ XPRESSION PHASE ] of the tinyC programming language.
+
+ass5_19CS10044_19CS30053_test2.c [ DECLARATIONS PHASE -- FUNCTION DEFINITIONS ]:
+This file is a C Source File written in tinyC programming language. It contains a program which will be used to test the working of the translator in conjunction with the lexer and parser. It consists of various programming constructs to test the [ DECLARATIONS PHASE -- FUNCTION DEFINITIONS ] of the tinyC programming language.
+
+ass5_19CS10044_19CS30053_test3.c [ DECLARATIONS PHASE -- ARRAY/POINTER/VARIABLE DECLARATIONS ]:
+This file is a C Source File written in tinyC programming language. It contains a program which will be used to test the working of the translator in conjunction with the lexer and parser. It consists of various programming constructs to test the [ DECLARATIONS PHASE -- ARRAY/POINTER/VARIABLE DECLARATIONS ] of the tinyC programming language.
+
+ass5_19CS10044_19CS30053_test4.c [ STATEMENTS PHASE -- CONDITIONAL CONSTRUCTS ]:
+This file is a C Source File written in tinyC programming language. It contains a program which will be used to test the working of the translator in conjunction with the lexer and parser. It consists of various programming constructs to test the [ STATEMENTS PHASE -- CONDITIONAL CONSTRUCTS ] of the tinyC programming language.
+
+ass5_19CS10044_19CS30053_test5.c [ STATEMENTS PHASE -- LOOP CONSTRUCTS ]:
+This file is a C Source File written in tinyC programming language. It contains a program which will be used to test the working of the translator in conjunction with the lexer and parser. It consists of various programming constructs to test the [ STATEMENTS PHASE -- LOOP CONSTRUCTS ] of the tinyC programming language.
+
+---------------------------------------------------------------
+
+Output Files: These files can be opened in any suitable text editor.
+
+ass5_19CS10044_19CS30053_quads1.out :
+This .out file contains the Machine Independent 3-Address Code and the Symbol Tables printed out in a neat and clean format upon translation of the ass5_19CS10044_19CS30053_test1.c file using the translator in conjunction with the parser and the lexer.
+
+ass5_19CS10044_19CS30053_quads2.out :
+This .out file contains the Machine Independent 3-Address Code and the Symbol Tables printed out in a neat and clean format upon translation of the ass5_19CS10044_19CS30053_test2.c file using the translator in conjunction with the parser and the lexer.
+
+ass5_19CS10044_19CS30053_quads3.out :
+This .out file contains the Machine Independent 3-Address Code and the Symbol Tables printed out in a neat and clean format upon translation of the ass5_19CS10044_19CS30053_test3.c file using the translator in conjunction with the parser and the lexer.
+
+ass5_19CS10044_19CS30053_quads4.out :
+This .out file contains the Machine Independent 3-Address Code and the Symbol Tables printed out in a neat and clean format upon translation of the ass5_19CS10044_19CS30053_test4.c file using the translator in conjunction with the parser and the lexer.
+
+ass5_19CS10044_19CS30053_quads5.out :
+This .out file contains the Machine Independent 3-Address Code and the Symbol Tables printed out in a neat and clean format upon translation of the ass5_19CS10044_19CS30053_test5.c file using the translator in conjunction with the parser and the lexer.
+
+Makefile:
+The Makefile generates an executable ./a.out which can then be used in the following manner to test the translator.
+
+**************************************************************
+Instructions for Testing the Translator:
+
+[NOTE: The below command will clean up all files except the one given above.]
+
+	make clean 
+
+
+[NOTE: We have already supplied you with the quad files. If you want to re-generate them, to check the working of our translator, please use the command below to clean up the files. We know that re-excecuting them without cleaning will result in overwrite, and they will be newly written, but this command is just a safety net. This command will only clean up the quad files.]
+
+	make cleanquads
+
+
+Perform the following commands in sequence at the terminal.
+
+Step 1: Switch to the folder containing all the above files
+
+	cd "Path to folder ass5_19CS10044_19CS30053"
+
+
+Step 2: Execute the make command to generate the ./a.out executable
+
+	make
+
+
+Step 3: 
+Note: Step 1 and Step 2 have to be done to generate the a.out executable.
+Testing the tests file provided by us can be done in the following two ways.
+
+First method (Translating all test files at once):
+Using make command - 
+	make testall
+	
+NOTE: The make testall command redirects its output to ass5_19CS10044_19CS30053_quad<i>.out files. These files can then be viewed in a text editor to see the woring of the translator. [THIS COMMAND WILL TRANSLATE ALL THE TEST FILES]
+
+
+Second method (Translating one test file at a time):
+Using make command:
+	make test<i>
+	
+NOTE: The make test<i> command redirects its output to ass5_19CS10044_19CS30053_quad<i>.out file. This file can then be viewed in a text editor to see the woring of the translator. [THIS COMMAND WILL TRANSLATE THE TEST FILE WITH THE NUMBER <i>]
+
+
+TESTING YOUR OWN TEST FILE: [Note: Steps 1 and 2 are compulsory to generate the a.out executable]
+Pass the test file as a command line argument to ./a.out. You can pass your own test file. This will print the result direclty to the terminal which is not the case when we use the above commands.
+	./a.out < YOUR_OWN_TEST_FILE.c
+	
+Alternatively you can redirect your output to a .out file using the below command.
+	./a.out < YOUR_OWN_TEST_FILE.c > YOUR_OWN_QUAD_FILE.out
+
+**************************************************************
+

@@ -1,0 +1,151 @@
+
+**************************************************************
+COMPILERS LABORATORY CS39003
+ASSIGNMENT O6 -- Target Code for tinyC
+Semester O5 (Autumn 2021-22)
+Group Members : Hritaban Ghosh (19CS30053)
+                Nakul Aggarwal (19CS10044)
+                
+**************************************************************
+Description of files:
+
+ass6_19CS10044_19CS30053.y : 
+This .y file contains the bison specification for the tinyC programming language. Please note that several grammar rules that are to e excluded from the previous assignment have not been deleted, rather they are left without any actions associated with them (which is as good as deleting them). This is done on purpose to retain the structure of the bison file and increase productivity incase of future extensions.
+
+ass6_19CS10044_19CS30053.l : 
+This .l file contains the lex specification for the tinyC programming language.
+
+ass6_19CS10044_19CS30053_translator.h : 
+This .h file contains the declarations of all the data structures, classes, their attributes and methods and global functions and algorithms used to translate the code written in the tinyC programming language into a Machine Independent 3-Address Code. The only Machine Dependent Features are the size of various data types of the tinyC programming language. These have been specified as macros in this file and also initialized into the global container(s) in the main function of .cxx file.
+
+ass6_19CS10044_19CS30053_translator.cxx : 
+This .cxx file contains the definitions of all the data structures, classes, their attributes and methods and global functions and algorithms used to translate the code written in the tinyC programming language into a Machine Independent 3-Address Code.
+
+ass6_19CS10044_19CS30053_target_translator.cxx :
+This .cxx files contains all the global functions used to generate the target code from the array of quads to the assembly language of x86_64. We use the optimized assembly instructions of lowest strength and algebraic simplication to encode all the quads. The target code generated is streamed to a file which is created and named by the target translator itself.
+
+---------------------------------------------------------------
+
+Test Files: All the test files combined thoroughly checks all the specifications of the tinyC programming language.
+
+ass6_19CS10044_19CS30053_test1.c:
+This file is a C Source File written in tinyC programming language. It contains a program which will be used to test the working of the translator in conjunction with the lexer and parser. It contains a program on vector algebra wrriten in the tinyC programming language.
+
+ass6_19CS10044_19CS30053_test2.c:
+This file is a C Source File written in tinyC programming language. It contains a program which will be used to test the working of the translator in conjunction with the lexer and parser. It contains a program on vector algebra wrriten in the tinyC programming language.
+ass6_19CS10044_19CS30053_test3.c:
+This file is a C Source File written in tinyC programming language. It contains a program which will be used to test the working of the translator in conjunction with the lexer and parser. It contains a program on vector algebra wrriten in the tinyC programming language.
+
+ass6_19CS10044_19CS30053_test4.c:
+This file is a C Source File written in tinyC programming language. It contains a program which will be used to test the working of the translator in conjunction with the lexer and parser. It contains a program on vector algebra wrriten in the tinyC programming language.
+
+ass6_19CS10044_19CS30053_test5.c:
+This file is a C Source File written in tinyC programming language. It contains a program which will be used to test the working of the translator in conjunction with the lexer and parser. It contains a program on vector algebra wrriten in the tinyC programming language.
+
+---------------------------------------------------------------
+
+Quads Files: These files can be opened in any suitable text editor.
+
+ass6_19CS10044_19CS30053_quads1.out :
+This .out file contains the Machine Independent 3-Address Code and the Symbol Tables printed out in a neat and clean format upon translation of the ass6_19CS10044_19CS30053_test1.c file using the translator in conjunction with the parser and the lexer.
+
+ass6_19CS10044_19CS30053_quads2.out :
+This .out file contains the Machine Independent 3-Address Code and the Symbol Tables printed out in a neat and clean format upon translation of the ass6_19CS10044_19CS30053_test2.c file using the translator in conjunction with the parser and the lexer.
+
+ass6_19CS10044_19CS30053_quads3.out :
+This .out file contains the Machine Independent 3-Address Code and the Symbol Tables printed out in a neat and clean format upon translation of the ass6_19CS10044_19CS30053_test3.c file using the translator in conjunction with the parser and the lexer.
+
+ass6_19CS10044_19CS30053_quads4.out :
+This .out file contains the Machine Independent 3-Address Code and the Symbol Tables printed out in a neat and clean format upon translation of the ass6_19CS10044_19CS30053_test4.c file using the translator in conjunction with the parser and the lexer.
+
+ass6_19CS10044_19CS30053_quads5.out :
+This .out file contains the Machine Independent 3-Address Code and the Symbol Tables printed out in a neat and clean format upon translation of the ass6_19CS10044_19CS30053_test5.c file using the translator in conjunction with the parser and the lexer.
+
+---------------------------------------------------------------
+
+Assembly Files: These files can be opened in any suitable text editor.
+
+ass6_19CS10044_19CS30053_asm1.s :
+This .s file contains the target code generated in assembly language of x86_64 upon translation of the ass6_19CS10044_19CS30053_test1.c file using the target translator in conjunction with the translator, parser and the lexer.
+
+ass6_19CS10044_19CS30053_asm2.s :
+This .s file contains the target code generated in assembly language of x86_64 upon translation of the ass6_19CS10044_19CS30053_test1.c file using the target translator in conjunction with the translator, parser and the lexer.
+
+ass6_19CS10044_19CS30053_asm3.s :
+This .s file contains the target code generated in assembly language of x86_64 upon translation of the ass6_19CS10044_19CS30053_test1.c file using the target translator in conjunction with the translator, parser and the lexer.
+
+ass6_19CS10044_19CS30053_asm4.s :
+This .s file contains the target code generated in assembly language of x86_64 upon translation of the ass6_19CS10044_19CS30053_test1.c file using the target translator in conjunction with the translator, parser and the lexer.
+
+ass6_19CS10044_19CS30053_asm5.s :
+This .s file contains the target code generated in assembly language of x86_64 upon translation of the ass6_19CS10044_19CS30053_test1.c file using the target translator in conjunction with the translator, parser and the lexer.
+
+Makefile:
+The Makefile generates an executable ./a.out which can then be used in the following manner to test the target translator.
+
+**************************************************************
+Instructions for Testing the Target Translator:
+
+[NOTE: The below command will clean up all files except the ones given above.]
+
+	make clean 
+
+
+[NOTE: We have already supplied you with the quad files. If you want to re-generate them, to check the working of our translator, please use the command below to clean up the files. We know that re-excecuting them without cleaning will result in overwrite, and they will be newly written, but this command is just a safety net. This command will only clean up the quad files. Similarly you can also use a command to clean the assembly files.]
+
+	make cleanquads
+	make cleanasm
+
+
+Perform the following commands in sequence at the terminal.
+
+Step 1: Switch to the folder containing all the above files
+
+	cd "Path to folder ass6_19CS10044_19CS30053"
+
+
+Step 2: Execute the make command to generate the ./a.out executable which is the tinyC compiler.
+
+	make
+
+
+Step 3: 
+Note: Step 1 and Step 2 have to be done to generate the a.out executable.
+Executing the tests file provided by us can be done in the following two ways.
+
+First method (Translating all test files at once):
+Using make command - 
+	make testall
+	
+NOTE: The make testall command generates executables of the form test<i>.exe which can then be run at the terminal using the command below. Here i is to replaced by a test file number. [THIS COMMAND WILL TRANSLATE ALL THE TEST FILES]
+
+	./test<i>.exe
+
+Second method (Translating one test file at a time):
+Using make command:
+	make test<i>
+	
+NOTE: The make test<i> command generates executable of the form test<i>.exe which can then be run at the terminal using the command below. Here i is to replaced by a test file number. [THIS COMMAND WILL TRANSLATE THE TEST FILE WITH THE NUMBER i]
+	./test<i>.exe
+
+**************************************************************
+Instructions for Testing Custom Files
+
+If you want to compile a file (say "ABC.c") using tinyC compiler, do the following --
+
+Step 1:
+	>>> make
+
+Step 2:
+	>>> ./a.out < ABC.c > ABC.out
+Here "ABC.out" is the name of the file to which the intermediate code (quads) will be written along with the symbol tables,
+activation records and constant tables (if any). It can have any other name ("ANY_OTHER_NAME.out")
+
+Step 3:
+An x86-64 assembly code will be generated in the file "ass6_19CS10044_19CS30053_asm_CUSTOM.s"
+Now you can use the following command to compile the assembly code.
+	>>> make tinyC
+
+Step 4:
+Upon compilation, the executable "test.exe" will be generated. Run the executable through the following command
+	>>> ./test.exe

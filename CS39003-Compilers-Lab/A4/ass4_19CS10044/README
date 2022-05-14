@@ -1,0 +1,55 @@
+
+**************************************************************
+	COMPILERS LABORATORY CS39003
+	ASSIGNMENT O4 -- Parser for tinyC
+	Semester O5 (Autumn 2021-22)
+	Group Members : Hritaban Ghosh (19CS30053)
+					Nakul Aggarwal (19CS10044)
+
+**************************************************************
+Description of files:
+
+ass4_19CS10044_19CS30053.y : 
+This .y file contains the bison specification for the tinyC programming language.
+
+ass4_19CS10044_19CS30053.l : 
+This .l file contains the lex specification for the tinyC programming language.
+
+ass4_19CS10044_19CS30053_main.c : 	
+This .c file contains the main function which takes a path to a C Source File written in tinyC programming language as a command line argument and then passes this source file to the parser using yyparse() and performs syntax analysis and print the rules by which the statements of the C source code get reduced.
+
+ass4_19CS10044_19CS30053_test.c :
+This file is a C Source File written in tinyC programming language. It contains an all encompassing program which will be used to test the working of the parser written in ass4_19CS10044_19CS30053.y . It consists of various programming constructs of the tinyC programming language.
+
+Makefile:
+The Makefile generates an executable ./a.out which can then be used in the following manner to test the parser.
+
+**************************************************************
+Testing the parser:
+
+Perform the following commands in sequence at the terminal.
+
+Step 1: Switch to the folder containing all the above files
+
+	>>>	cd "Path to folder ass4_19CS10044_19CS30053"
+
+Step 2: Execute the make command to generate the ./a.out executable.
+
+	>>>	make
+
+Step 3: 
+Note: Step 1 and Step 2 have to be done to generate the ./a.out executable.
+Testing the test file provided by us can be done in the following two ways.
+
+NOTE: The "make test" command redirects its output to ass4_19CS10044_19CS30053_test.out file. This file can then be viewed in a text editor to see the woring of the parser.
+
+Using make command - 
+	>>>	make test
+
+Executing directly -
+Pass the test file as a command line argument to ./a.out. You can pass your own test file. This will print the result direclty to the terminal which is not the case when we use the above command.
+
+	>>>	./a.out ass4_19CS10044_19CS30053_test.c
+
+**************************************************************
+
