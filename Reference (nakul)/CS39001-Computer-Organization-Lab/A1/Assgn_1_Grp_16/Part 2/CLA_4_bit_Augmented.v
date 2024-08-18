@@ -36,7 +36,7 @@ module CLA_4_bit_Augmented ( PP , GG , s , a , b , c_in ) ;
 	
 	assign PP = P[3] & P[2] & P[1] & P[0] ; // Block Propagate Signal
 	assign GG = G[3] | (P[3] & (G[2] | (P[2] & (G[1] | (P[1] & G[0]))))) ;	// Block Generate Signal
-	
+
 	assign C1 = G[0] | (P[0] & c_in) ;	// Carry-in for the Second Adder
 	assign C2 = G[1] | (P[1] & C1) ;	// Carry-in for the Third Adder
 	assign C3 = G[2] | (P[2] & (G[1] | (P[1] & C1))) ;	// Carry-in for the Fourth Adder
